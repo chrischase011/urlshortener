@@ -16,11 +16,28 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary float-end my-3">Generate</button>
+                    <button type="submit" id="submit" class="btn btn-primary float-end my-3">Generate</button>
                 </form>
             </div>
             <div class="col-4"></div>
         </div>
     </div>
+<script>
+    function checkURL(url)
+    {
+        var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+        return regexp.test(url);
+    }
+    $(()=>{
+        $("#submit").click((e)=>{
+            var url = $("#url").val();
 
+            if(!checkURL(url))
+            {
+                alert("Please input valid URL");
+                e.preventDefault();
+            }
+        });
+    });
+</script>
 @endsection
