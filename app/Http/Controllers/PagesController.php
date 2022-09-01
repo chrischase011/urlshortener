@@ -43,7 +43,7 @@ class PagesController extends Controller
         ]);
 
         
-        return view('pages.generate', ['url' => $url, 'token' => request()->root().'/'.$token]);
+        return view('pages.generate', ['token' => request()->root().'/'.$token]);
     }
 
     protected function Token()
